@@ -22,7 +22,7 @@ client.connect(err => {
     const newOrders = req.body;
     ordersCollection.insertOne(newOrders)
       .then(result => {
-        res.send(result)
+        res.send(result.insertedCount>0)
       })
   })
   app.get('/orders', (req, res) => {
